@@ -1,6 +1,6 @@
 # PHP Registration/Login Form
 
-Registration and Login Form for school assignment using bcrypt algorithm with cost 8 to hash passwords
+Registration and Login Form for school assignment using bcrypt algorithm with cost 10 to hash passwords
 
 ## **Link:** [Altervista website](https://alex0.altervista.org/pizzeria/index.php)
 
