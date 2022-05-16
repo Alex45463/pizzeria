@@ -1,0 +1,71 @@
+{% extends 'head.html.twig' %}
+
+{% block head %}
+	{{ parent() }}
+{% endblock %}
+
+{% block navbar %}
+	{{ parent() }}
+{% endblock %}
+
+{% block error %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body %}
+<main>
+	<div class="album py-5 bg-light">
+		<div class="container">
+			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+				{% if not list_products|length %}
+					<p> CARRELLO VUOTO</p>
+				{% else %}
+					{% for key, product in list_products %}
+						<div class="col">
+							<div class="card shadow-sm">
+								<img src="assets/product{{key}}.jpg" alt="{{product['name']}}" class="bd-placeholder-img card-img-top" width="100%" height="225">
+								<div class="card-body">
+									<p class="card-text">{{product['name']}}</p>
+									<div class="d-flex justify-content-between align-items-center">
+										{% if logged %}
+											<div class="btn-group">
+												<form action="util/addToCart.php" method="post">
+													<input type="hidden" name="product" value={{key}}>
+													<button type="submit" class="btn btn-sm btn-outline-secondary">Aggiungi al carrello</button>
+												</form>
+											{% if type == 'cart' %}
+												<form action="util/removeFromCart.php" method="post">
+													<input type="hidden" name="product" value={{key}}>
+														<button type="submit" class="btn btn-sm btn-outline-secondary">Rimuovi dal carrello</button>
+												</form>
+											{% endif %}
+											</div>
+										{% else %}
+											<div class="btn-group">
+												<button type="submit" class="btn btn-sm btn-outline-secondary" disabled="disabled">Necessario essere loggati</button>
+											</div>
+										{% endif %}
+										<small class="text-muted"> {{product['price']}}€
+										{% if type == 'cart' %}
+											X {{product['quantity']}} pezzi
+										{% endif %}
+										</small>
+									</div>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				{% endif %}
+			</div>
+		</div>
+	</div>
+	{% if type == 'cart' and list_products|length > 0 %}
+		<a href="checkout.php">
+			<div class="text-center">
+				<button type="button" class="btn btn-primary">Procedi all'acquisto</button>
+			</div>
+		</a>
+	{% endif %}
+	{{ parent() }}
+</main>
+{% endblock %}

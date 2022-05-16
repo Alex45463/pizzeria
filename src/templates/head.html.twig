@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% block head %}
+            <meta charset="UTF-8">
+            <title>Pizzeria</title>
+            <meta name="viewport" content="width=device-width, initial-scale=0.8">
+            <link rel="stylesheet" href="./styles/bootstrap.min.css">
+            <link rel="stylesheet" href="./styles/index.css">
+        {% endblock %}
+    </head>
+    <body>
+        {% block navbar %}
+        <header>
+            <div class="navbar navbar-dark bg-dark shadow-sm">
+                <div class="container">
+                    <a href="index.php" class="navbar-brand d-flex align-items-left">
+                        <strong>Pizzeria Da Alex</strong>
+                    </a>
+                    {% if not logged %}
+                        <a href="register.php" class="navbar-brand d-flex align-items-center">
+                            <strong>Register</strong>
+                        </a>
+                        <a href="login.php" class="navbar-brand d-flex align-items-left">
+                            <strong>Login</strong>
+                        </a>
+                    {% else %}
+                        <a href="cart.php" class="navbar-brand d-flex align-items-left">
+                            <strong>Carrello</strong>
+                        </a>
+                        <a href="logout.php" class="navbar-brand d-flex align-items-center">
+                            <strong>Logout</strong>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </header>
+        {% endblock %}
+
+        {% block error %}
+            {% if error %}
+                <div class="m-4">
+                    <div class="alert alert-danger alert-dismissible fade show">
+                        <strong>Error!</strong> A problem has been occurred while submitting your data. {{error}}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                </div>
+            {% endif %}
+        {% endblock %}
+
+        {% block body %}
+            <footer class="my-5 pt-5 text-muted text-center text-small">
+                <p class="mb-1">Author: Nechita Alexandru</p>
+            </footer>
+        {% endblock %}
+    </body>
+    {% block script %}
+        <script src="./scripts/bootstrap.bundle.min.js"></script>
+    {% endblock %}
+</html>
