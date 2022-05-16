@@ -53,7 +53,7 @@ Then to install dependencies run:
 after that you can simply run a php server, for example using php command with the following values:
 
 ```bash
-    php -S {address}:{port}
+    php -S {address}:{port} -t ./src
 ```
 
 ## **TO DO:**
