@@ -3,6 +3,8 @@
 Assunzioni aggiuntive:
 - L'utente non contiene i dati di indirizzo (contentuti invece nell'ordine), in quanto un cliente potrebbe trovarsi in un luogo diverso da quello di casa 
 
+[Schema E/R](https://github.com/Alex45463/pizzeria/blob/main/ER.pdf)
+
 ## **Link:** [Altervista website](https://alex0.altervista.org/pizzeria/index.php)
 
 ## **FRONT-END:**
