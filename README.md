@@ -1,6 +1,7 @@
-# PHP Registration/Login Form
+# Pizzeria PHP
 
-Registration and Login Form for school assignment using bcrypt algorithm with cost 10 to hash passwords
+Assunzioni aggiuntive:
+- L'utente non contiene i dati di indirizzo (contentuti invece nell'ordine), in quanto un cliente potrebbe trovarsi in un luogo diverso da quello di casa 
 
 ## **Link:** [Altervista website](https://alex0.altervista.org/pizzeria/index.php)
 
@@ -44,6 +45,8 @@ after that you can simply run a php server, for example using php command with t
 
 ## **TO DO:**
 
+- **App personalized pizza**
+- **Add recipt**
 - **Add admin page**
 - **Add deliverer page**
 
